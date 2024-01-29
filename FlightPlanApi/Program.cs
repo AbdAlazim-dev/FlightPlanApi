@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(setUpaction =>
 {
+    setUpaction.ReturnHttpNotAcceptable = true;
     setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
     setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
     setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
