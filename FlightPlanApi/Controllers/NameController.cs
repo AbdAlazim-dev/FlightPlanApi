@@ -1,5 +1,4 @@
-﻿using FlightPlanApi.Modules;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace FlightPlanApi.Controllers
 {
