@@ -1,4 +1,6 @@
+using FlightPlanApi.Auth;
 using FlightPlanApi.Data;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,9 @@ builder.Services.AddControllers(setUpaction =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDatabaseAdapter, MongoDbDatabase>();
+builder.Services.AddAuthentication("BasicAuthentication").AddScheme
+    <AuthenticationSchemeOptions, BasicAuthenticationHandler>
+    ("BasicAuthentication", null);
 
 var app = builder.Build();
 

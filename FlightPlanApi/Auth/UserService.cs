@@ -1,0 +1,21 @@
+﻿namespace FlightPlanApi.Auth
+{
+    public class UserService : IUserService
+    {
+        public Task<User> Authenticate(string username, string password)
+        {
+            if (username != "admin" || password != "P@ssw0rd")
+            {
+                return Task.FromResult<User>(null);
+            }
+
+            var user = new User
+            {
+                Username = username,
+                Id = Guid.NewGuid().ToString("N")
+            };
+
+            return Task.FromResult(user);
+        }
+    }
+}
