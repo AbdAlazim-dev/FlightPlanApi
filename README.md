@@ -36,7 +36,8 @@ To set up and run this project on your local machine, follow these steps:
 
 ### Additional Notes
 
-Please note that authentication and documentation were considered out of scope for this project. Therefore, the implementation of authentication, such as Basic Auth, and documentation generation with Swagger, was not included in this project.
+- Please note that authentication and documentation were considered out of scope for this project. Therefore, the implementation of authentication, such as Basic Auth, and documentation generation with Swagger, was not included in this project.
+- The main goal of this project is to learn how to use NoSql database in ASP .NET project so the UI is not the best i have create it using HTML and Bootstrap and Vanilla javascript 
 
 Happy experimenting with MongoDb databases in ASP .NET Core!
 
