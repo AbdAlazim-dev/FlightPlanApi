@@ -42,12 +42,9 @@ public class FlightPlanController : ControllerBase
     /// <response code="401">You are not authorized to use the endpoint</response>
     /// <response code="406">The output format you entered in the "Accept header is not supported"</response>
     /// <returns></returns>
-    [HttpGet]
-    [Route("GetFlightPlanById")]
+    [HttpGet("{flightPlanId}", Name = "GetFlightPlanById")]
     [ProducesResponseType(typeof(FlightPlan), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
-    
-    
     public async Task<IActionResult> GetFlightPlanById(string flightPlanId)
     {
         var flightPlan = await _adapter.GetFlightPlan(flightPlanId);
@@ -91,7 +88,7 @@ public class FlightPlanController : ControllerBase
     /// <response code="406">The output format you entered in the "Accept header is not supported"</response>
     /// <returns></returns>
     [HttpPost]
-    public async Task<IActionResult> CreateFlightPlan([FromBody] FlightPlan flightPlan)
+    public async Task<IActionResult> CreateFlightPlan(FlightPlan flightPlan)
     {
         var result = await _adapter.FileFlightPlan(flightPlan);
 
@@ -137,6 +134,7 @@ public class FlightPlanController : ControllerBase
     /// <response code="200">the flight plan has been updated</response>
     /// <response code="500">somthing went wrong on the server</response>
     [HttpPut]
+    [Route("{flightPlan}")]
     public async Task<IActionResult> UpdateFlightPlan(FlightPlan flightPlan)
     {
         var result = await _adapter.UpdateFlightPlan(flightPlan.FlightPlanId, flightPlan);
