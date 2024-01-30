@@ -134,7 +134,6 @@ public class FlightPlanController : ControllerBase
     /// <response code="200">the flight plan has been updated</response>
     /// <response code="500">somthing went wrong on the server</response>
     [HttpPut]
-    [Route("{flightPlan}")]
     public async Task<IActionResult> UpdateFlightPlan(FlightPlan flightPlan)
     {
         var result = await _adapter.UpdateFlightPlan(flightPlan.FlightPlanId, flightPlan);

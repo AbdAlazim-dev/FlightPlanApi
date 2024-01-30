@@ -1,4 +1,4 @@
-const api_base_url = "http://localhost:3000/api/v1/flightplan/";
+const api_base_url = "https://localhost:3002/api/v1/flightplans/";
 
 let username = "admin";
 let password = "P@ssw0rd";
@@ -89,9 +89,11 @@ async function delete_flight_plan(flight_plan_id) {
     if(response.status !== 200) {
         alert(response.status);
     }
+    get_all_flight_plans();
 }
 
 async function load_flight_plan() {
+    console.log("Loading flight plan...");
     let flight_plan_id = document.getElementById("flightPlanId").value;
     let api_response = await fetch(api_base_url + flight_plan_id, {
         method: 'GET',

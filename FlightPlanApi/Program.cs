@@ -13,15 +13,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(setUpaction =>
 {
-    setUpaction.ReturnHttpNotAcceptable = true;
     setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
     setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
-    setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
     setUpaction.Filters.Add(new ProducesResponseTypeAttribute(StatusCodes.Status401Unauthorized));
     setUpaction.Filters.Add(new AuthorizeFilter());
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DevelopmentPolicy", builder =>
+    {
+        builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 builder.Services.AddSwaggerGen(setUpAction =>
 {
     setUpAction.SwaggerDoc("flightplan", new()
@@ -76,6 +84,7 @@ if (app.Environment.IsDevelopment())
     {
         options.SwaggerEndpoint("/swagger/flightplan/swagger.json", "Flight Plan API");
     });
+    app.UseCors("DevelopmentPolicy");
 }
 
 app.UseHttpsRedirection();
