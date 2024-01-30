@@ -172,6 +172,7 @@ async function update_flight_plan() {
     if(api_response.status !== 200) {
         alert(api_response.status);
     }
+    
 }
 
 async function file_flight_plan() {
@@ -183,7 +184,7 @@ async function file_flight_plan() {
         selected_flight_type = 'IFR';
     }
 
-    let api_response = await fetch(api_base_url + 'file', {
+    let api_response = await fetch(api_base_url , {
         method: 'POST',
         headers: {
             'Authorization': 'Basic ' + btoa(username + ":" + password),
@@ -211,4 +212,6 @@ async function file_flight_plan() {
     if(api_response.status !== 200) {
         alert(api_response.status);
     }
+    window.location.href = "/flightplan.html"
+    get_all_flight_plans();
 }
