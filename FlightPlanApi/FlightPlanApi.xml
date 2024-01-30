@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlightPlanApi</name>
+    </assembly>
+    <members>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.GetFlightPlanById(System.String)">
+            <summary>
+            Get the flight plan by its id
+            </summary>
+            <param name="flightPlanId">the ID of the flight plan you want to get its info</param>
+            <response code="404">There is no flight plan with this id</response>
+            <response code="400">somthing wrong with the request you sent</response>
+            <response code="200">the flight plan info</response>
+            <response code="401">You are not authorized to use the endpoint</response>
+            <response code="406">The output format you entered in the "Accept header is not supported"</response>
+            <returns></returns>
+        </member>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.CreateFlightPlan(FlightPlanApi.Models.FlightPlan)">
+            <summary>
+            Add flight plan to the system
+            </summary>
+            <remarks>
+            sample request
+            
+                 POST : /api/v1/flightplans
+                 {
+                    "flight_plan_id": "f1d193ad0153491f9cf61cbe39c7db70",
+                    "altitude": 0,
+                    "airspeed": 0,
+                    "aircraft_identification" : "Hey You This is a test to create flight plan"
+                    "aircraft_type" :"string",
+                    "arrival_airport" : "string",
+                    "departing_airport": "string"
+                    "flight_type" : "string",
+                    "eparture_time": 2024-01-30T10:33:09.733+00:00
+                    "estimated_arrival_time" : 2024-01-30T10:33:09.733+00:00
+                    "route": "string",
+                    "remarks": "string",
+                    "fuel_hours": 0,
+                    "fuel_minutes": 0
+                    "number_onboard": 4,
+                    "numberOnBoard": 0
+                 }
+            </remarks>
+            <param name="flightPlan">the flight plan info you want to add to the system</param>
+            <response code="400">somthing wrong with the request you sent</response>
+            <response code="201">the flight plan has been added to the system</response>
+            <response code="401">You are not authorized to use the endpoint</response>
+            <response code="406">The output format you entered in the "Accept header is not supported"</response>
+            <returns></returns>
+        </member>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.UpdateFlightPlan(FlightPlanApi.Models.FlightPlan)">
+            <summary>
+            edit flight plan by providing its id
+            add the flight plan id and provide new values throgh the request body
+            </summary>
+            <remarks>
+            sample request
+            
+                PUT : /api/v1/flightplans 
+                {
+                    "flight_plan_id": "f1d193ad0153491f9cf61cbe39c7db70",
+                    "altitude": 0,
+                    "airspeed": 0,
+                    "aircraft_identification": "Hey You This is a test to update a field",
+                    "aircraft_type": "string",
+                    "arrival_airport": "string",
+                    "departing_airport": "string",
+                    "flight_type": "string",
+                    "departure_time": "2024-01-30T10:33:09.733+00:00",
+                    "estimated_arrival_time": "2024-01-30T10:33:09.733+00:00",
+                    "route": "string",
+                    "remarks": "string",
+                    "fuel_hours": 0,
+                    "fuel_minutes": 0,
+                    "number_onboard": 4,
+                    "numberOnBoard": 0
+                }
+            </remarks>
+            <param name="flightPlanId">the flight plan ID you want to edit its info</param>
+            <response code="400">somthing wrong with the request you sent -usually the request body-</response>
+            <response code="200">the flight plan has been updated</response>
+            <response code="500">somthing went wrong on the server</response>
+        </member>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.DeleteFlightPlan(System.String)">
+            <summary>
+            Delete the flight plan by its id
+            </summary>
+            <param name="flightPlanId">the ID of the flight plan you to delete</param>
+            <response code="404">There is no flight plan with this id</response>
+            <response code="400">somthing wrong with the request you sent</response>
+            <response code="200">the flight plan has been deleted</response>
+            <response code="401">You are not authorized to use the endpoint</response>
+            <response code="406">The output format you entered in the "Accept header is not supported"</response>
+        </member>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.GetFlightPlanDepartureAirport(System.String)">
+            <summary>
+            Get the flight plan departure by its id
+            </summary>
+            <param name="flightPlanId">the ID of the flight plan you want to get its info</param>
+            <response code="404">There is no flight plan with this id</response>
+            <response code="400">somthing wrong with the request you sent</response>
+            <response code="200">the flight plan departure</response>
+            <response code="401">You are not authorized to use the endpoint</response>
+            <response code="406">The output format you entered in the "Accept header is not supported"</response>
+        </member>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.GetFlightPlanRoute(System.String)">
+            <summary>
+            Get the flight plan route by its id
+            </summary>
+            <param name="flightPlanId">the ID of the flight plan you want to get its info</param>
+            <response code="404">There is no flight plan with this id</response>
+            <response code="400">somthing wrong with the request you sent</response>
+            <response code="200">the flight plan route</response>
+            <response code="401">You are not authorized to use the endpoint</response>
+            <response code="406">The output format you entered in the "Accept header is not supported"</response>
+        </member>
+        <member name="M:FlightPlanApi.Controllers.FlightPlanController.GetFlightPlanTimeInRoute(System.String)">
+            <summary>
+            Get the flight plan enroute time by its id
+            </summary>
+            <param name="flightPlanId">the ID of the flight plan you want to get its info</param>
+            <response code="404">There is no flight plan with this id</response>
+            <response code="400">somthing wrong with the request you sent</response>
+            <response code="200">the flight plan enroute</response>
+            <response code="401">You are not authorized to use the endpoint</response>
+            <response code="406">The output format you entered in the "Accept header is not supported"</response>
+        </member>
+    </members>
+</doc>
