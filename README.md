@@ -40,4 +40,3 @@ Please note that authentication and documentation were considered out of scope f
 
 Happy experimenting with MongoDb databases in ASP .NET Core!
 
-You can copy this markdown and add it to your GitHub repository.
