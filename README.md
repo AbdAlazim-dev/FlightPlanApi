@@ -1,5 +1,3 @@
-Sure! Here is the markdown version of the project description:
-
 ## Project Name: NoSQL Database Experimentation in ASP .NET Core
 
 ### Description
